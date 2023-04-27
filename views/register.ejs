@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/css/global.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/card.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/form.css">
+
+    <title>Register</title>
+</head>
+
+<body>
+
+        <% if(error){ %>
+            <script>
+                alert("Email already exists");
+            </script>
+        <% } %>
+        
+    <form action="/register" method="POST">
+        <div class="card neumorphism">
+            <h1 class="header">Register</h1>
+            <div class="divider"></div>
+            <input class="neumorphism" type="text" name="name" placeholder="Peter Ruebenacker" required="required" />
+            <input class="neumorphism" type="text" name="address" placeholder="Mainstreet 4" required="required" />
+            <input class="neumorphism" type="text" name="city" placeholder="10115 Berlin" required="required" />
+            <input class="neumorphism" type="email" name="email" placeholder="E-Mail" required="required" />
+            <input class="neumorphism" type="password" name="password" placeholder="Password" required="required" />
+            <button id="btn-submit" type="submit" class="neumorphism">Register</button>
+            <a class="sub-title" href="/login">Already have an account?</a>
+        </div>
+    </form>
+    <%- include('./partials/footer'); %>
+    <%- include('./partials/cookieBanner'); %>
+</body>
+
+</html>

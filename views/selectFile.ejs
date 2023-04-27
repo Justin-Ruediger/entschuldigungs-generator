@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/css/global.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/card.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/selectFile.css">
+    <title>Datei Auswählen</title>
+</head>
+<body>
+    <div class="card neumorphism">
+        <h1 class="header">Datei Auswählen</h1>
+        <div class="divider"></div>
+        <% for(var i = 0; i < files.length; i++) { %>
+                <button class="neumorphism" onclick="window.location.href='/file/<%= files[i].destination %>/<%= childid %>'"> <%= files[i].name %> </button>
+                <% if(i< files.length -1){%>
+                    <div class="divider"></div>
+                <% } %>
+        <% } %>
+        <a class="sub-title" href="/selectChild">Zurück</a>
+        
+    </div>
+    <%- include('./partials/footer'); %>
+</body>
+</html>

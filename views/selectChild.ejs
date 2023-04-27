@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/css/global.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/card.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/selectChild.css">
+    <title>Kind Auswählen</title>
+</head>
+<body>
+    <div class="card neumorphism">
+        <h1 class="header">Kind Auswählen</h1>
+        <div class="divider"></div>
+        <% for(var i = 0; i < children.length; i++) { %>
+                <div class="row">
+                    <a href="/selectFile/<%= children[i].id %>"> <%= children[i].name %> </a>
+                    <a href="/history/<%= children[i].id %>"> <img src="/static/icons/history.png"></a>  
+                    <a href="/editChild/<%= children[i].id %>"> <img src="/static/icons/edit.png"></a>  
+                </div>
+                <% if(i< children.length -1){%>
+                    <div class="divider-minimal"></div>
+                <% } %>
+        <% } %>
+        <button class="neumorphism" onclick="window.location.href='addChild'">Kind Hinzufügen</button>
+        <a href="/editAccount" class="sub-title">Konto bearbeiten</a>
+        <a class="sub-title" href="/logout">Ausloggen</a>
+    </div>
+    <%- include('./partials/footer'); %>
+</body>
+</html>

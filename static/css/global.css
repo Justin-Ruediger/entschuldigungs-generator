@@ -1,0 +1,50 @@
+:root {
+
+    --color: 0, 100%; 
+    --l:50%;
+
+    --color-primary: #2bdff9;
+    --color-secondary: #ca4c40;
+    --color-dark: #1c81af;
+
+
+    --color-bg: #EFEEEE;
+    --color-bg-dark: #d6d6d6;
+    --color-bg-light: #ffffff;
+
+
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    font-family: arial;
+}
+.neumorphism {
+    background: var(--color-bg);
+
+    box-shadow:  12px 12px 18px var(--color-bg-dark),
+             -12px -12px 18px var(--color-bg-light);
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+footer{
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+}
+
+.footer {
+    height: 50px;
+    margin: auto;
+    text-align:center;
+    padding:10px;
+    color: var(--color-bg-dark);
+}
+.footer > * {
+    color: var(--color-bg-dark);
+}
