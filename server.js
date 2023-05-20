@@ -24,8 +24,8 @@ app.use(express.urlencoded({extended: true})) //middleware for parsing urlencode
 app.use(express.json()) // middleware for parsing incoming json
 app.use("/static", express.static("static")) // to set a folder for static file serving
 app.use(session({  
-	name: `daffyduck`,
-	secret: 'some-secret-example',  
+	name: `awfefdysef`,
+	secret: 't48wa7f9aw8hfieuobsyziaef',  
 	resave: false,
 	saveUninitialized: false,
 	cookie: { 
