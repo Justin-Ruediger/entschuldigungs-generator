@@ -14,8 +14,8 @@
         <h1 class="header">Kind Auswählen</h1>
         <div class="divider"></div>
         <% for(var i = 0; i < children.length; i++) { %>
-                <div class="row">
-                    <a href="/selectFile/<%= children[i].id %>"> <%= children[i].name %> </a>
+                <div class="row display-row">
+                    <a class="vertical-align" href="/selectFile/<%= children[i].id %>"> <%= children[i].name %> </a>
                     <a href="/history/<%= children[i].id %>"> <img src="/static/icons/history.png"></a>  
                     <a href="/editChild/<%= children[i].id %>"> <img src="/static/icons/edit.png"></a>  
                 </div>

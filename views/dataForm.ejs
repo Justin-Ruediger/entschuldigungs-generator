@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="/static/css/global.css">
     <link rel="stylesheet" type="text/css" href="/static/css/card.css">
     <link rel="stylesheet" type="text/css" href="/static/css/form.css">
-    <title>Document</title>
+    <title>Daten eingeben</title>
 </head>
 <body>
     
@@ -20,7 +20,7 @@
     
     <form action=<%= "/file/" + filename + "/" + childid %> method="POST">
         <div class="card neumorphism">
-            <h1 class="header">Kind Hinzufügen</h1>
+            <h1 class="header">Daten eingeben</h1>
             <div class="divider"></div>
             <% for(var i = 0; i < properties.length; i++) { %>
                 <input class="neumorphism" type="text" name="<%= properties[i].name %>" placeholder="<%= properties[i].question %>" required="required" />

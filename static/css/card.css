@@ -7,7 +7,7 @@
     justify-items: center;
     gap: 30px;
 }
-.card * {
+.card > * {
     flex: none;
     align-self: stretch;
 }
@@ -50,10 +50,32 @@ a{
     text-decoration: none;
     color: var(--color-dark)
 }
+.middle{
+    text-align: center;
+    vertical-align: baseline;
+}
+.vertical-align {
+    display: flex;
+    align-items: center;
+    text-align: justify;
+    letter-spacing: 0.03em;
+}
 .row{
+    width: 100%;
+}
+.display-row{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
-    width: 100%;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 10px;
+}
+.display-column{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 10px;
 }
