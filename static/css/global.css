@@ -4,13 +4,13 @@
     --l:50%;
 
     --color-primary: #2bdff9;
-    --color-secondary: #ca4c40;
+    --color-secondary: #e86a5f;
     --color-dark: #1c81af;
 
 
     --color-bg: #EFEEEE;
     --color-bg-dark: #d6d6d6;
-    --color-bg-light: #ffffff;
+    --color-bg-light: #F5F5F5;
 
 
 }
@@ -20,6 +20,18 @@
     box-sizing: border-box;
     -webkit-appearance: none;
     font-family: arial;
+}
+body {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    padding-top: 100px;
+    padding-bottom: 50px;;
+    background: var(--color-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 .neumorphism {
     background: var(--color-bg);
@@ -33,8 +45,8 @@
   box-sizing: border-box;
 }
 footer{
-    bottom: 0;
-    position: fixed;
+    bottom: -100px;
+    position: absolute;
     width: 100%;
 }
 
@@ -47,4 +59,7 @@ footer{
 }
 .footer > * {
     color: var(--color-bg-dark);
+}
+.danger-text {
+    color: var(--color-secondary) !important;
 }

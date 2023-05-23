@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/static/css/global.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/card.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/form.css" />
+    <title>Kind Bearbeiten</title>
+  </head>
+  <body>
+    <% if(typeof error != 'undefined'){ %>
+    <script>
+      alert("You need to fill out all fields");
+    </script>
+    <% } %>
+
+    <form action="?" method="POST">
+      <div class="card neumorphism">
+        <h1 class="header">Kind Bearbeiten</h1>
+        <div class="divider"></div>
+        <select class="neumorphism" name="schoolid" selected="<%= school_id %>">
+          <% for(var i = 0; i < schools.length; i++) { %>
+          <option value="<%=schools[i].id%>"><%= schools[i].name%></option>
+          <% } %>
+        </select>
+        <input
+          class="neumorphism"
+          type="text"
+          name="name"
+          placeholder="Max Musterman"
+          value="<%= child_name %>"
+          required="required"
+        />
+        <input
+          class="neumorphism"
+          type="text"
+          name="grade"
+          placeholder="6b"
+          value="<%= child_grade %>"
+          required="required"
+        />
+        <input
+          class="neumorphism"
+          type="text"
+          name="teachername"
+          placeholder="Lehere Nachname"
+          value="<%= teacher_name %>"
+          required="required"
+        />
+        <select class="neumorphism" name="teachergender">
+          <option value="m">Mänlich</option>
+          <option value="f">Weiblich</option>
+        </select>
+
+        <a class="sub-title" href="/user/addSchool">Neue Schule Hinzufügen</a>
+        <button id="btn-submit" type="submit" class="neumorphism">
+          Speichern
+        </button>
+        <a class="sub-title" href="../selectChild">Abbrechen</a>
+        <a class="sub-title danger-text" href="javascript:deleteChild();"
+          >Kind Entfernen</a
+        >
+      </div>
+    </form>
+  </body>
+</html>
+<script>
+  elem = document.querySelector("option[value=<%= teacher_gender %>]");
+  elem.selected = true;
+  elem = document.querySelector("option[value=<%= school_id %>]");
+  elem.selected = true;
+
+  function deleteChild() {
+    var r = confirm(
+      "Sind sie sicher, dass sie das Kind löschen wollen? Alle Daten gehen dabei verloren!"
+    );
+    if (r == true) {
+      window.location.href = "./removeChild";
+    } else {
+      return;
+    }
+  }
+</script>

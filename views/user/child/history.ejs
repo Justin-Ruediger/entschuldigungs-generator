@@ -13,11 +13,11 @@
     <div class="card neumorphism">
         <h1 class="header">Historie</h1>
         <div class="divider"></div>
-        <a class="sub-title" href="/selectChild">Zurück</a>
+        <a class="sub-title" href="../../selectChild">Zurück</a>
         <% for(var i = 0; i < doc.length; i++) { %>
                 <div class="row display-column">
-                        <button class="neumorphism" onclick="window.location.href='/historyRender/<%= doc[i].id %>'"> <%= doc[i].document %></button>
-                        <a class="middle" href="sub-title"> <%= doc[i].timestamp.toLocaleString('de-DE', { timeZone: 'UTC' }) %> </a>
+                        <button class="neumorphism" onclick="window.location.href='./file/history/<%= doc[i].id %>'"> <%= doc[i].document %></button>
+                        <a class="middle sub-title"> <%= doc[i].timestamp.toLocaleString('de-DE', { timeZone: 'UTC' }) %> </a>
                 </div>
                 <% if(i< doc.length -1){%>
                     <div class="divider-minimal"></div>

@@ -14,12 +14,12 @@
         <h1 class="header">Datei Auswählen</h1>
         <div class="divider"></div>
         <% for(var i = 0; i < files.length; i++) { %>
-                <button class="neumorphism" onclick="window.location.href='/file/<%= files[i].destination %>/<%= childid %>'"> <%= files[i].name %> </button>
+                <button class="neumorphism" onclick="window.location.href='./file/<%= files[i].destination %>'"> <%= files[i].name %> </button>
                 <% if(i< files.length -1){%>
                     <div class="divider"></div>
                 <% } %>
         <% } %>
-        <a class="sub-title" href="/selectChild">Zurück</a>
+        <a class="sub-title" href="../../selectChild">Zurück</a>
         
     </div>
     <%- include('./partials/footer'); %>
