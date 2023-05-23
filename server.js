@@ -19,7 +19,7 @@ const session = require("express-session");
 const app = express();
 
 // define a PORT variable from the environment with a default value
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 8080;
 
 // set the view engine to ejs
 app.set("view engine", "ejs");
