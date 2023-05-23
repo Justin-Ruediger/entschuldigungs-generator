@@ -74,7 +74,7 @@ router.get("/selectchild", async (req, res) => {
       "SELECT id, name FROM `children` WHERE `parent_id` = ?",
       [req.session.user_id]
     );
-    res.render("selectchild", { children: children });
+    res.render("selectChild", { children: children });
   } catch (err) {
     console.log(err);
   }
