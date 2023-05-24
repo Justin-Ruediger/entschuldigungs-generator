@@ -22,7 +22,7 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: stretch;
+
     box-shadow:  12px 12px 18px var(--color-bg-dark),
              -12px -12px 18px var(--color-bg-light);
 }
@@ -48,7 +48,7 @@ body{
     align-items: center;
     padding: 40px;
 }
-img{
+.main-img{
     width: 80%;
 }
 h2 {
@@ -118,6 +118,9 @@ section{
     .vanish{
         display: none;
     }
+    .logo{
+        display: none;
+    }
 }
 footer{
     bottom: -100px;
@@ -143,4 +146,13 @@ footer{
 }
 .align-left{
     justify-content: flex-start;
+}
+.logo-wrapper{
+    display: flex;
+    /* size to this fit children */
+    flex-direction: row;
+    gap: 20px;
+}
+.logo{
+    height: 100%;
 }

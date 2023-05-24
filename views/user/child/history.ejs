@@ -1,30 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/static/css/global.css">
-    <link rel="stylesheet" type="text/css" href="/static/css/card.css">
-    <link rel="stylesheet" type="text/css" href="/static/css/selectChild.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/static/css/global.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/card.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/selectChild.css" />
+    <link rel="icon" href="/static/icons/logo.svg" type="image/x-icon" />
     <title>Historie</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="card neumorphism">
-        <h1 class="header">Historie</h1>
-        <div class="divider"></div>
-        <a class="sub-title" href="../../selectChild">Zurück</a>
-        <% for(var i = 0; i < doc.length; i++) { %>
-                <div class="row display-column">
-                        <button class="neumorphism" onclick="window.location.href='./file/history/<%= doc[i].id %>'"> <%= doc[i].document %></button>
-                        <a class="middle sub-title"> <%= doc[i].timestamp.toLocaleString('de-DE', { timeZone: 'UTC' }) %> </a>
-                </div>
-                <% if(i< doc.length -1){%>
-                    <div class="divider-minimal"></div>
-                <% } %>
-        <% } %>
-        
+      <h1 class="header">Historie</h1>
+      <div class="divider"></div>
+      <a class="sub-title" href="../../selectChild">Zurück</a>
+      <% for(var i = 0; i < doc.length; i++) { %>
+      <div class="row display-column">
+        <button
+          class="neumorphism"
+          onclick="window.location.href='./file/history/<%= doc[i].id %>'"
+        >
+          <%= doc[i].document %>
+        </button>
+        <a class="middle sub-title">
+          <%= doc[i].timestamp.toLocaleString('de-DE', { timeZone: 'UTC' }) %>
+        </a>
+      </div>
+      <% if(i< doc.length -1){%>
+      <div class="divider-minimal"></div>
+      <% } %> <% } %>
     </div>
     <%- include('./partials/footer'); %>
-</body>
+  </body>
 </html>

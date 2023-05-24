@@ -1,37 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/static/css/global.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/card.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/form.css" />
+    <link rel="icon" href="/static/icons/logo.svg" type="image/x-icon" />
+    <title>Anmelden</title>
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/static/css/global.css">
-    <link rel="stylesheet" type="text/css" href="/static/css/card.css">
-    <link rel="stylesheet" type="text/css" href="/static/css/form.css">
-    <title>Login</title>
-</head>
-
-<body>
-
+  <body>
     <% if(typeof error !="undefined" && error){ %>
-        <script>
-            alert("Wrong email or password");
-        </script>
-        <% } %>
+    <script>
+      alert("Wrong email or password");
+    </script>
+    <% } %>
 
-            <form action="/login" method="POST">
-                <div class="card neumorphism">
-                    <h1 class="header">Login</h1>
-                    <div class="divider"></div>
-                    <input class="neumorphism" type="email" name="email" placeholder="E-Mail" required="required" />
-                    <input class="neumorphism" type="password" name="password" placeholder="Password"
-                        required="required" />
-                    <button id="btn-submit" type="submit" class="neumorphism">Login</button>
-                    <a class="sub-title" href="/register">Dont have an account?</a>
-                </div>
-            </form>
-            <%- include('./partials/footer'); %>
-            <%- include('./partials/cookieBanner'); %>
-</body>
-
+    <form action="/login" method="POST">
+      <div class="card neumorphism">
+        <h1 class="header">Login</h1>
+        <div class="divider"></div>
+        <input
+          class="neumorphism"
+          type="email"
+          name="email"
+          placeholder="E-Mail"
+          required="required"
+        />
+        <input
+          class="neumorphism"
+          type="password"
+          name="password"
+          placeholder="Password"
+          required="required"
+        />
+        <button id="btn-submit" type="submit" class="neumorphism">
+          Anmelden
+        </button>
+        <a class="sub-title" href="/register">Noch keinen Account?</a>
+      </div>
+    </form>
+    <%- include('./partials/footer'); %> <%- include('./partials/cookieBanner');
+    %>
+  </body>
 </html>

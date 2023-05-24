@@ -4,13 +4,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>School Doc Gen</title>
     <link rel="stylesheet" type="text/css" href="/static/css/colors.css" />
     <link rel="stylesheet" type="text/css" href="/static/css/home.css" />
+    <link rel="icon" href="/static/icons/logo.svg" type="image/x-icon" />
   </head>
   <body>
     <div class="navbar">
-      <h1 class="logo-name">School Doc Gen</h1>
+      <div class="logo-wrapper">
+        <img class="logo" src="/static/icons/logo.svg" alt="Logo" />
+        <h1 class="logo-name">School Doc Gen</h1>
+      </div>
       <div class="link-container">
         <a href="/login" class="a-btn login">Anmelden</a>
         <a href="/register" class="a-btn call vanish">Registrieren</a>
@@ -22,7 +26,7 @@
           <h2>School Doc Gen</h2>
           <p>
             Diese Plattform hilft Ihnen dabei Entschuldigungen, Freistellungen
-            und Krankmeldungen für ihre Kinder zu generieren
+            und Krankmeldungen für Ihre Kinder zu generieren
           </p>
           <div class="link-container m-top align-left">
             <a href="/register" class="a-btn call">Registrieren</a>
@@ -30,7 +34,7 @@
         </section>
       </div>
       <div>
-        <img src="/static/Big_pic.svg" alt="Picture" />
+        <img class="main-img" src="/static/Big_pic.svg" alt="Picture" />
       </div>
     </div>
     <%- include('./partials/footer'); %> <%- include('./partials/cookieBanner');

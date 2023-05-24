@@ -1,45 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/static/css/global.css">
-    <link rel="stylesheet" type="text/css" href="/static/css/card.css">
-    <link rel="stylesheet" type="text/css" href="/static/css/form.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/static/css/global.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/card.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/form.css" />
+    <link rel="icon" href="/static/icons/logo.svg" type="image/x-icon" />
 
     <title>Account Bearbeiten</title>
-</head>
+  </head>
 
-<body>
+  <body>
+    <% if(typeof error != 'undefined' && error){ %>
+    <script>
+      alert("Email already exists");
+    </script>
+    <% } %>
 
-        <% if(typeof error != 'undefined' && error){ %>
-            <script>
-                alert("Email already exists");
-            </script>
-        <% } %>
-        
     <form action="/user/editAccount" method="POST">
-        <div class="card neumorphism">
-            <h1 class="header">Account Bearbeiten</h1>
-            <div class="divider"></div>
-            <input class="neumorphism" type="text" name="name" placeholder="Peter Ruebenacker" value="<%= name %>" required="required" />
-            <input class="neumorphism" type="text" name="address" placeholder="Mainstreet 4" value="<%= address %>" required="required" />
-            <input class="neumorphism" type="text" name="city" placeholder="10115 Berlin" value="<%= city %>" required="required" />
-            <input class="neumorphism" type="email" name="email" placeholder="E-Mail" value="<%= email %>" required="required" />
-            <button id="btn-submit" type="submit" class="neumorphism">Speichern</button>
-            <a class="sub-title" href="./selectChild">Zurück</a>
-            <a class="sub-title danger-text" href="javascript:deleteAccount();">Account Löschen!</a>
-        </div>
+      <div class="card neumorphism">
+        <h1 class="header">Account Bearbeiten</h1>
+        <div class="divider"></div>
+        <input
+          class="neumorphism"
+          type="text"
+          name="name"
+          placeholder="Peter Ruebenacker"
+          value="<%= name %>"
+          required="required"
+        />
+        <input
+          class="neumorphism"
+          type="text"
+          name="address"
+          placeholder="Mainstreet 4"
+          value="<%= address %>"
+          required="required"
+        />
+        <input
+          class="neumorphism"
+          type="text"
+          name="city"
+          placeholder="10115 Berlin"
+          value="<%= city %>"
+          required="required"
+        />
+        <input
+          class="neumorphism"
+          type="email"
+          name="email"
+          placeholder="E-Mail"
+          value="<%= email %>"
+          required="required"
+        />
+        <button id="btn-submit" type="submit" class="neumorphism">
+          Speichern
+        </button>
+        <a class="sub-title" href="./selectChild">Zurück</a>
+        <a class="sub-title danger-text" href="javascript:deleteAccount();"
+          >Account Löschen!</a
+        >
+      </div>
     </form>
-</body>
-
+  </body>
 </html>
 <script>
-    function deleteAccount(){
-        if(confirm("Sind Sie sicher, dass Sie Ihr Konto löschen wollen? Dabei gehen alle Daten unwiederbringlich verloren!")){
-            window.location.href = "./deleteAccount";
-        }
+  function deleteAccount() {
+    if (
+      confirm(
+        "Sind Sie sicher, dass Sie Ihr Konto löschen wollen? Dabei gehen alle Daten unwiederbringlich verloren!"
+      )
+    ) {
+      window.location.href = "./deleteAccount";
     }
+  }
 </script>
