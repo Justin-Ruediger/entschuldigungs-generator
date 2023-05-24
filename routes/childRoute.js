@@ -6,7 +6,7 @@ database.connect(
   "entschuldigungs_generator"
 );
 const child = require("../modules/child.js")(database);
-
+const pdfLoader = require("../modules/pdfLoader.js");
 // Route for accesing children
 const express = require("express");
 
@@ -79,9 +79,7 @@ routerChild.post("/editChild", async (req, res) => {
   }
 });
 routerChild.get("/selectFile", async (req, res) => {
-  var files = [
-    { name: "Entschuldigung", destination: "Entschuldigung-Krankheit" },
-  ];
+  var files = pdfLoader.getFiles();
   res.render("selectFile", { files: files, childid: req.params.childid });
 });
 module.exports = router;

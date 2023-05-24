@@ -14,6 +14,23 @@ var files = [
       { name: "end_date", question: "Bis..." },
     ],
   },
+  {
+    name: "Freistellung Eintägig",
+    destination: "Freistellung-Day",
+    customProperties: [
+      { name: "on_date", question: "Datum" },
+      { name: "reason", question: "Aufgrund ..." },
+    ],
+  },
+  {
+    name: "Freistellung Mehrtägig",
+    destination: "Freistellung-Timespan",
+    customProperties: [
+      { name: "start_date", question: "Von..." },
+      { name: "end_date", question: "Bis..." },
+      { name: "reason", question: "Aufgrund ..." },
+    ],
+  },
 ];
 
 function getCurrentDateString() {
@@ -49,7 +66,9 @@ async function getPdf(loacation, gender, args) {
         argsNames.forEach((argName) => {
           if (args.hasOwnProperty(argName)) {
             field.setText(
-              field.getText().replace(`[${argName}]`, args[argName].toString())
+              field
+                .getText()
+                .replaceAll(`[${argName}]`, args[argName].toString())
             );
             field.enableReadOnly();
           }
@@ -67,14 +86,25 @@ async function getPdf(loacation, gender, args) {
   var pdfBuffer = Buffer.from(pdfBytes.buffer, "binary");
   return pdfBuffer;
 }
-function getCustomProperties(name) {
-  return files.find((file) => file.name == name).customProperties;
+function getCustomProperties(destination) {
+  try {
+    console.log(files);
+    return files.find((file) => file.destination == destination)
+      .customProperties;
+  } catch (err) {
+    console.log(err);
+    return [];
+  }
+}
+function getFiles() {
+  return files;
 }
 module.exports = {
   getPdf,
   getCustomProperties,
   getPdfSimple,
   getCurrentDateString,
+  getFiles,
 };
 
 /*

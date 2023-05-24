@@ -11,7 +11,7 @@ database.connect(
 const child = require("../modules/child.js")(database);
 router.get("/:name", async (req, res) => {
   var customPropertys = pdfLoader.getCustomProperties(req.params.name);
-
+  console.log(customPropertys);
   if (customPropertys.length > 0) {
     res.render("dataForm", {
       properties: customPropertys,
@@ -40,6 +40,7 @@ router.get("/:name", async (req, res) => {
 });
 router.post("/:name", async (req, res) => {
   var customPropertys = pdfLoader.getCustomProperties(req.params.name);
+  console.log(customPropertys);
   var data = await child.getChildData(req.params.childid);
 
   customPropertys.forEach((prop) => {
