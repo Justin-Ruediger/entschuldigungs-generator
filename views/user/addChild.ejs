@@ -20,7 +20,15 @@
       <div class="card neumorphism">
         <h1 class="header">Kind Hinzufügen</h1>
         <div class="divider"></div>
-        <select class="neumorphism" name="schoolid">
+        <select
+          class="neumorphism"
+          name="schoolid"
+          required
+          placeholder="Schule"
+        >
+          <option value="" disabled selected hidden>
+            Wähle eine Schule...
+          </option>
           <% for(var i = 0; i < schools.length; i++) { %>
           <option value="<%=schools[i].id %>"><%= schools[i].name%></option>
           <% } %>

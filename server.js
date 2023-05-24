@@ -89,16 +89,21 @@ app.post("/login", async (req, res) => {
     res.redirect("/user");
     return;
   }
-  var result = await accounts.login(req.body.email, req.body.password);
-  console.log("result: " + result);
-  if (result === false) {
+  try {
+    var result = await accounts.login(req.body.email, req.body.password);
+    console.log("result: " + result);
+    if (result === false) {
+      res.render("login", { error: true });
+      return;
+    }
+    req.session.auth = true;
+    req.session.email = req.body.email;
+    req.session.user_id = result;
+    res.redirect("./user/selectchild");
+  } catch (e) {
     res.render("login", { error: true });
     return;
   }
-  req.session.auth = true;
-  req.session.email = req.body.email;
-  req.session.user_id = result;
-  res.redirect("./user/selectchild");
   //res.redirect('/pdf/Entschuldigung-Krankheit-Male.pdf?name=' + req.body.email);
 });
 app.get("/register", (req, res) => {
@@ -109,23 +114,27 @@ app.get("/register", (req, res) => {
   res.render("register", { error: false });
 });
 app.post("/register", async (req, res) => {
-  if (req.session.auth) {
-    res.redirect("/user");
+  try {
+    if (req.session.auth) {
+      res.redirect("/user");
+      return;
+    }
+    var success = await accounts.register(
+      req.body.name,
+      req.body.address,
+      req.body.city,
+      req.body.email,
+      req.body.password
+    );
+    if (!success) {
+      res.render("register", { error: true });
+      return;
+    }
+    res.redirect("login");
     return;
+  } catch (err) {
+    console.log(err);
   }
-  var success = await accounts.register(
-    req.body.name,
-    req.body.address,
-    req.body.city,
-    req.body.email,
-    req.body.password
-  );
-  if (!success) {
-    res.render("register", { error: true });
-    return;
-  }
-  res.redirect("login");
-  return;
 });
 app.get("*", function (req, res) {
   res.redirect("/");
