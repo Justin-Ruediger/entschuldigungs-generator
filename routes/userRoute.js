@@ -2,15 +2,9 @@
 const express = require("express");
 const router = express.Router();
 const database = require("../modules/databaseConnection.js");
-database.connect(
-  "206.189.249.7",
-  "entgen",
-  "xXO1poV6F0JOmvyN",
-  "entschuldigungs_generator"
-);
+database.connect();
 //check if user is logged in, if not, redirect to login page
 router.use((req, res, next) => {
-  console.log(req.session);
   if (!req.session.auth) {
     res.redirect("/login");
     console.log("unauthorized access");
@@ -91,13 +85,6 @@ router.get("/addChild", async (req, res) => {
   }
 });
 router.post("/addChild", async (req, res) => {
-  console.log(
-    req.session.user_id,
-    req.body.name,
-    req.body.grade,
-    req.body.teachername,
-    req.body.schoolid
-  );
   try {
     var result = await database.query(
       "INSERT INTO `children`(`parent_id`, `name`, `grade`, `teacher_name`, `school_id`, `teacher_gender`) VALUES (?, ?, ?, ?, ?, ?)",

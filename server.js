@@ -3,12 +3,7 @@ require("dotenv").config();
 
 const database = require("./modules/databaseConnection.js");
 const path = require("path");
-database.connect(
-  "206.189.249.7",
-  "entgen",
-  "xXO1poV6F0JOmvyN",
-  "entschuldigungs_generator"
-);
+database.connect();
 const accounts = require("./modules/accounts.js")(database);
 const child = require("./modules/child.js")(database);
 // import express and morgan
@@ -91,7 +86,6 @@ app.post("/login", async (req, res) => {
   }
   try {
     var result = await accounts.login(req.body.email, req.body.password);
-    console.log("result: " + result);
     if (result === false) {
       res.render("login", { error: true });
       return;
@@ -101,6 +95,7 @@ app.post("/login", async (req, res) => {
     req.session.user_id = result;
     res.redirect("./user/selectchild");
   } catch (e) {
+    console.log(e);
     res.render("login", { error: true });
     return;
   }

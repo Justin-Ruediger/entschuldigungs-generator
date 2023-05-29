@@ -48,9 +48,7 @@ async function getPdfSimple(loacation) {
   return pdfBuffer;
 }
 async function getPdf(loacation, gender, args) {
-  console.log(args);
   var suffix = gender == "m" ? "-Male" : "-Female";
-  console.log(suffix);
   const pdfData = await fs.readFile("./pdf/" + loacation + suffix + ".pdf");
   var pdfDoc = await PDFDocument.load(pdfData);
 
@@ -88,7 +86,6 @@ async function getPdf(loacation, gender, args) {
 }
 function getCustomProperties(destination) {
   try {
-    console.log(files);
     return files.find((file) => file.destination == destination)
       .customProperties;
   } catch (err) {

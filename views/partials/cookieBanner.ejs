@@ -1,35 +1,35 @@
 <style>
-    .cookie-container {
-  position: fixed;
-  bottom: -100%;
-  left: 0;
-  right: 0;
-  color: var(--color-dark);
-  padding: 20px;
-  border-radius: 20px;
-  margin: 20px;
+  .cookie-container {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    right: 0;
+    color: var(--color-dark);
+    padding: 20px;
+    border-radius: 20px;
+    margin: 20px;
 
-  transition: 400ms;
+    transition: 400ms;
 
-  text-align: center;
+    text-align: center;
 
-  display:flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 30px;
     font-weight: 400;
-}
+  }
 
-.cookie-container.active {
-  bottom: 0;
-}
+  .cookie-container.active {
+    bottom: 0;
+  }
 
-.cookie-container a {
-  color: var(--color-primary);
-}
+  .cookie-container a {
+    color: var(--color-primary);
+  }
 
-.cookie-btn {
+  .cookie-btn {
     transition: 0.3s ease-in-out;
     padding: 10px;
     border-radius: 50px;
@@ -38,36 +38,34 @@
     color: var(--color-secondary);
     width: 100px;
     font-weight: 400;
-}
-.cookie-btn:hover{
+  }
+  .cookie-btn:hover {
     background-color: var(--color-secondary);
     color: var(--color-bg);
-}
+  }
 </style>
 <div class="cookie-container neumorphism">
-    <p>
-      We use cookies in this website! By continuing to use this website you are giving consent to cookies being used. For more information on cookies visit our
-      <a href="/static/datenschutz.html">privacy policy</a>.
-    </p>
+  <p>
+    We use cookies in this website! By continuing to use this website you are
+    giving consent to cookies being used. For more information on cookies visit
+    our
+    <a href="/static/datenschutz.html">privacy policy</a>.
+  </p>
 
-    <button class="cookie-btn neumorphism">
-      Accept
-    </button>
+  <button class="cookie-btn neumorphism">Accept</button>
 </div>
 <script>
-    console.log("TEST")
-    const cookieContainer = document.querySelector(".cookie-container");
-    const cookieButton = document.querySelector(".cookie-btn");
+  const cookieContainer = document.querySelector(".cookie-container");
+  const cookieButton = document.querySelector(".cookie-btn");
 
-    cookieButton.addEventListener("click", () => {
+  cookieButton.addEventListener("click", () => {
     cookieContainer.classList.remove("active");
     localStorage.setItem("cookieBannerDisplayed", "true");
-    });
+  });
 
-    setTimeout(() => {
+  setTimeout(() => {
     if (!localStorage.getItem("cookieBannerDisplayed")) {
-        cookieContainer.classList.add("active");
+      cookieContainer.classList.add("active");
     }
-    }, 2000);
+  }, 2000);
 </script>
-

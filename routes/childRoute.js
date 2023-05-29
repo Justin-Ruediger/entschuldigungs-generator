@@ -1,10 +1,5 @@
 const database = require("../modules/databaseConnection.js");
-database.connect(
-  "206.189.249.7",
-  "entgen",
-  "xXO1poV6F0JOmvyN",
-  "entschuldigungs_generator"
-);
+database.connect();
 const child = require("../modules/child.js")(database);
 const pdfLoader = require("../modules/pdfLoader.js");
 // Route for accesing children

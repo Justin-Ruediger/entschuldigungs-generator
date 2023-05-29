@@ -45,7 +45,6 @@ async function login(email, psw) {
       return false;
     }
     var userhash = result[0]["password"];
-    console.log(result);
     var login = await password.compare(psw, userhash);
     return login ? result[0]["id"] : false;
   } catch (err) {
