@@ -7,8 +7,15 @@ var rgb = PdfLib.rgb;
 
 var files = [
   {
-    name: "Entschuldigung-Krankheit",
+    name: "Entschuldigung-Krankheit Eintägig",
     destination: "Entschuldigung-Krankheit",
+    customProperties: [
+      { name: "start_date", question: "Datum" }
+    ],
+  },
+  {
+    name: "Entschuldigung-Krankheit Mehrtägig",
+    destination: "Entschuldigung-Timespan-Krankheit",
     customProperties: [
       { name: "start_date", question: "Von..." },
       { name: "end_date", question: "Bis..." },
