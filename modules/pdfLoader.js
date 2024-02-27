@@ -80,7 +80,7 @@ async function getPdf(loacation, gender, args) {
         });
       } else if (args.hasOwnProperty(fieldName)) {
         field.setText(args[fieldName]);
-        field.enableReadOnly();
+        // field.enableReadOnly();
       }
     } catch (err) {
       console.log(err);
